@@ -563,42 +563,41 @@
                             </div> <!-- end of text-container -->
                         </div> <!-- end of col -->
                         <div class="col-lg-6">
-
+                                    
                             <!-- Registration Form -->
-                            <form>
+                            <form action="email-form.php" method="post">
                                 <div class="mb-4 form-floating">
-                                    <input type="text" class="form-control" id="floatingInput1" placeholder="Name">
+                                    <input type="text" name="name" class="form-control" id="floatingInput1" placeholder="Name" required>
                                     <label for="floatingInput1">Name</label>
                                 </div>
                                 <div class="mb-4 form-floating">
-                                    <input type="email" class="form-control" id="floatingInput2" placeholder="name@example.com">
+                                    <input type="email" name="email" class="form-control" id="floatingInput2" placeholder="name@example.com" required>
                                     <label for="floatingInput2">Email</label>
                                 </div>
                                 <div class="mb-4 form-floating">
-                                    <input type="text" class="form-control" id="floatingInput3" placeholder="Phone">
+                                    <input type="text" name="phone" class="form-control" id="floatingInput3" placeholder="Phone" required>
                                     <label for="floatingInput3">Phone</label>
                                 </div>
                                 <div class="mb-4 input-group">
-                                    <select class="form-select" id="inputGroupSelect1">
-                                        <option selected>Interested in...</option>
-                                        <option value="web">Web Solutions</option>
-                                        <option value="business">Business Solutions</option>
-                                        <option value="it">IT Support</option>
-                                        <option value="consultancy">Other</option>
+                                    <select class="form-select" id="inputGroupSelect1" name="interest" required>
+                                        <option selected>Interested In..</option>
+                                        <option value="Web">Web Solutions</option>
+                                        <option value="Business">Business Solutions</option>
+                                        <option value="I.T Support">IT Support</option>
+                                        <option value="Other">Other</option>
                                     </select>
                                 </div>
-                                <div class="mb-4 form-floating" id="other" style="display:none;">
-                                    <input type="text" class="form-control" id="floatingInput4" placeholder="Specify Other">
+                                <div class="mb-4 form-floating" id="other" style="display: none;">
+                                    <input type="text" name="other" class="form-control" id="floatingInput4" placeholder="Specify Other">
                                     <label for="floatingInput1">Other</label>
                                 </div>
                                 <div class="mb-4 form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                     <label class="form-check-label" for="exampleCheck1">By clicking get Inquire, I acknowledge that I have read and do hereby accept the <a href="privacy.html">Privacy Policy</a> and the <a href="terms.html">Terms & Conditions</a></label>
                                 </div>
                                 <button type="submit" class="form-control-submit-button">Inquire</button>
                             </form>
                             <!-- end of registrations form -->
-
                         </div> <!-- end of col -->
                     </div> <!-- end of row -->
                 </div> <!-- end of section-wrapper -->
@@ -721,5 +720,20 @@
         <script src="js/bootstrap.min.js"></script> <!-- Bootstrap framework -->
         <script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
         <script src="js/scripts.js"></script> <!-- Custom scripts -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <script>
+            $(function() {
+                $otherField = $("#other");
+                $('#inputGroupSelect1').on('change', function() {
+                    if(this.value === 'Other') {
+                        $otherField.show();
+                    } else {
+                        $otherField.hide();
+                    }
+                });
+            });
+        </script>
+
     </body>
 </html>
